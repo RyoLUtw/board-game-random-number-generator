@@ -1,0 +1,279 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7f2;
+  --panel: #ffffff;
+  --ink: #18201b;
+  --muted: #5d695f;
+  --line: #d8dfd7;
+  --accent: #1f7a5a;
+  --accent-strong: #155d44;
+  --accent-soft: #e3f2eb;
+  --warning: #9b4d18;
+  --shadow: 0 18px 45px rgba(24, 32, 27, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(31, 122, 90, 0.10), transparent 34%),
+    linear-gradient(315deg, rgba(196, 68, 54, 0.08), transparent 38%),
+    var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0 18px;
+  font-weight: 700;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(31, 122, 90, 0.35);
+  outline-offset: 2px;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+  display: grid;
+  gap: 18px;
+}
+
+.control-panel,
+.table-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.control-panel {
+  padding: 22px;
+}
+
+.brand-row,
+.table-toolbar,
+.option-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.65rem, 4vw, 2.6rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
+
+p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+label {
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 42px;
+  padding: 9px 11px;
+  color: var(--ink);
+  background: #fff;
+}
+
+.option-row {
+  margin-top: 18px;
+  align-items: flex-end;
+}
+
+.check-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-control input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: var(--accent);
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: var(--accent-strong);
+}
+
+.secondary-button {
+  background: #263d63;
+  color: #fff;
+}
+
+.secondary-button:hover {
+  background: #1f3150;
+}
+
+.ghost-button {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.ghost-button:hover {
+  background: #d2eadf;
+}
+
+.status-message {
+  min-height: 22px;
+  color: var(--warning);
+  font-weight: 700;
+}
+
+.table-panel {
+  overflow: hidden;
+}
+
+.table-toolbar {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.table-wrap {
+  overflow: auto;
+  max-height: calc(100vh - 320px);
+}
+
+table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  background: #eef4ef;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 0;
+}
+
+.label-input {
+  min-width: 120px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cell-button {
+  width: 100%;
+  min-width: 88px;
+  min-height: 58px;
+  background: #fbfcfb;
+  border: 1px solid transparent;
+  color: var(--ink);
+  font-size: 1.45rem;
+}
+
+.cell-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.cell-button.is-picked {
+  background: #c44436;
+  color: #fff;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding: 10px 0;
+  }
+
+  .brand-row,
+  .table-toolbar,
+  .option-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .controls-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .table-wrap {
+    max-height: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+}

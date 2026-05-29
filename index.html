@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Board Game Random Number Table</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel" aria-label="Generator controls">
+        <div class="brand-row">
+          <div>
+            <h1>Random Number Table</h1>
+            <p>Build a custom dice-free draw table for your board game reference sheet.</p>
+          </div>
+          <button id="generateAll" class="primary-button" type="button">Generate</button>
+        </div>
+
+        <div class="controls-grid">
+          <label>
+            Rows
+            <input id="rowCount" type="number" min="1" max="20" value="4">
+          </label>
+          <label>
+            Columns
+            <input id="columnCount" type="number" min="1" max="20" value="4">
+          </label>
+          <label>
+            Minimum number
+            <input id="minNumber" type="number" value="1">
+          </label>
+          <label>
+            Maximum number
+            <input id="maxNumber" type="number" value="100">
+          </label>
+        </div>
+
+        <div class="option-row">
+          <label class="check-control">
+            <input id="uniqueNumbers" type="checkbox">
+            <span>Use each number only once per table</span>
+          </label>
+          <button id="drawOne" class="secondary-button" type="button">Draw one cell</button>
+        </div>
+
+        <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="table-panel" aria-label="Random number output">
+        <div class="table-toolbar">
+          <div>
+            <h2>Output Table</h2>
+            <p>Edit row and column labels directly in the table.</p>
+          </div>
+          <button id="resetLabels" class="ghost-button" type="button">Reset labels</button>
+        </div>
+
+        <div class="table-wrap">
+          <table id="numberTable">
+            <caption class="sr-only">Generated board game random number table</caption>
+            <thead id="tableHead"></thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
