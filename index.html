@@ -14,7 +14,6 @@
             <h1>Random Number Table</h1>
             <p>Build a custom dice-free draw table for your board game reference sheet.</p>
           </div>
-          <button id="generateAll" class="primary-button" type="button">Generate</button>
         </div>
 
         <div class="controls-grid">
@@ -34,15 +33,53 @@
             Maximum number
             <input id="maxNumber" type="number" value="100">
           </label>
+          <label>
+            Numbers per cell
+            <input id="numbersPerCell" type="number" min="1" max="20" value="1">
+          </label>
         </div>
 
         <div class="option-row">
           <label class="check-control">
             <input id="uniqueNumbers" type="checkbox">
-            <span>Use each number only once per table</span>
+            <span>Use each number only once per column</span>
           </label>
-          <button id="drawOne" class="secondary-button" type="button">Draw one cell</button>
+          <div class="action-row">
+            <button id="generateAll" class="primary-button" type="button">Generate</button>
+            <button id="transposeTable" class="ghost-button" type="button">Transpose row and column</button>
+            <button id="drawOne" class="secondary-button" type="button">Draw one cell</button>
+          </div>
         </div>
+
+        <section class="advanced-settings" aria-labelledby="advancedSettingsTitle">
+          <h2 id="advancedSettingsTitle">Advanced table setting</h2>
+          <div class="prefix-settings">
+            <fieldset class="prefix-fieldset" data-prefix-group="row">
+              <legend>Row prefix</legend>
+              <div class="prefix-options" role="group" aria-label="Row prefix options">
+                <button class="prefix-option" type="button" data-prefix-target="row" data-prefix-value="Student" aria-pressed="false">Student</button>
+                <button class="prefix-option" type="button" data-prefix-target="row" data-prefix-value="Group" aria-pressed="false">Group</button>
+                <button class="prefix-option" type="button" data-prefix-target="row" data-prefix-value="custom" aria-pressed="false">Custom</button>
+              </div>
+              <input id="customRowPrefix" class="custom-prefix-input" type="text" placeholder="Custom row prefix" aria-label="Custom row prefix" hidden>
+            </fieldset>
+
+            <fieldset class="prefix-fieldset" data-prefix-group="column">
+              <legend>Column prefix</legend>
+              <div class="prefix-options single-option" role="group" aria-label="Column prefix options">
+                <button class="prefix-option" type="button" data-prefix-target="column" data-prefix-value="custom" aria-pressed="false">Custom</button>
+              </div>
+              <input id="customColumnPrefix" class="custom-prefix-input" type="text" placeholder="Custom column prefix" aria-label="Custom column prefix" hidden>
+            </fieldset>
+
+            <fieldset class="prefix-fieldset">
+              <legend>Column label presets</legend>
+              <div class="prefix-options preset-options" role="group" aria-label="Column label preset options">
+                <button class="prefix-option preset-option" type="button" data-preset-value="superfight" aria-pressed="false">Superfight</button>
+              </div>
+            </fieldset>
+          </div>
+        </section>
 
         <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
       </section>

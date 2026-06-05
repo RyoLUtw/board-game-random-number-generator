@@ -69,7 +69,8 @@ input:focus-visible {
 
 .brand-row,
 .table-toolbar,
-.option-row {
+.option-row,
+.action-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -98,7 +99,7 @@ p {
 
 .controls-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
   margin-top: 22px;
 }
@@ -136,6 +137,73 @@ input {
   width: 18px;
   min-height: 18px;
   accent-color: var(--accent);
+}
+
+.action-row {
+  justify-content: flex-end;
+}
+
+.advanced-settings {
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.advanced-settings h2 {
+  margin-bottom: 14px;
+}
+
+.prefix-settings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.prefix-fieldset {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 0;
+  padding: 14px;
+}
+
+.prefix-fieldset legend {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+.prefix-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.preset-options {
+  grid-template-columns: 1fr;
+}
+
+.single-option {
+  grid-template-columns: 1fr;
+}
+
+.prefix-option {
+  min-height: 38px;
+  padding: 0 10px;
+  background: #eef4ef;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.prefix-option:hover,
+.prefix-option.is-selected {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.custom-prefix-input {
+  margin-top: 10px;
 }
 
 .primary-button {
@@ -258,13 +326,18 @@ tbody th {
 
   .brand-row,
   .table-toolbar,
-  .option-row {
+  .option-row,
+  .action-row {
     align-items: stretch;
     flex-direction: column;
   }
 
   .controls-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prefix-settings {
+    grid-template-columns: 1fr;
   }
 
   .table-wrap {
