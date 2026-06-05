@@ -134,6 +134,11 @@ function generateNumbers() {
     return false;
   }
 
+  if (!state.unique && rangeSize < state.numbersPerCell) {
+    statusMessage.textContent = `Each cell needs at least ${state.numbersPerCell} possible numbers. Increase the range or lower numbers per cell.`;
+    return false;
+  }
+
   statusMessage.textContent = "";
   state.pickedCell = null;
 
@@ -166,7 +171,7 @@ function drawNumbersFromPool(pool) {
 }
 
 function generateCellNumbers() {
-  return Array.from({ length: state.numbersPerCell }, () => randomInteger(state.min, state.max));
+  return drawNumbersFromPool(buildNumberPool());
 }
 
 function formatCellValue(value) {
